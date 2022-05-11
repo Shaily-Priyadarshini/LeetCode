@@ -2,14 +2,15 @@ class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         final=[]
         n=len(candidates)
+        candidates.sort()
         
        # self.func(0,target,[],len(candidates),candidates,final)
         def func(ind,target,arr):
             if target<sum(arr):
                 return
             if target==sum(arr):
-                print(arr)
-                final.append(arr.copy())
+                if arr not in final:
+                    final.append(arr.copy())
                 return
 
             if ind>=n:
