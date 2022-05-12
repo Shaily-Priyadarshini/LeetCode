@@ -1,9 +1,6 @@
 class Solution:
     def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
-        n=len(candidates)
-        candidates.sort()
-        
-       # self.func(0,target,[],n,candidates,final)
+
         def func(ind, target, arr, final, candidates):
             if target ==0:
                 final.append(arr.copy())
@@ -17,6 +14,7 @@ class Solution:
                 arr.append(candidates[i])
                 func(i + 1, target - candidates[i], arr, final, candidates)
                 arr.pop()
+        candidates.sort()
         n=len(candidates)
         final=[]
         func(0, target, [],final, candidates)
